@@ -34,4 +34,30 @@ function initSlider() {
     // Prepend label to the pagination container
     paginationContainer.prepend(label);
   }
+
+  //Automate the slide change
+  let autoRun = setInterval(changeSlide, 5000);
+
+  //   Stop auto run at mouse enter
+  paginationContainer.addEventListener("mouseenter", () =>
+    clearTimeout(autoRun)
+  );
+
+  //   Start auto run at mouse leave
+  paginationContainer.addEventListener(
+    "mouseleave",
+    () => (autoRun = setInterval(changeSlide, 5000))
+  );
+}
+
+function changeSlide() {
+  //Get Radio button
+
+  const radioButtons = [...document.querySelectorAll(".slide-radio")];
+
+  //Get current index
+  const currentIndex = radioButtons.findIndex((rb) => rb.checked);
+
+  //Check the next radio button
+  radioButtons[(currentIndex + 1) % radioButtons.length].checked = true;
 }
