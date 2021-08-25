@@ -30,7 +30,7 @@ function initSlider() {
     // Generate the labels
     let label = document.createElement("label");
     label.setAttribute("for", `slide-radio-${i}`);
-    label.innerHTML = i;
+    // label.innerHTML = i;
     // Prepend label to the pagination container
     paginationContainer.prepend(label);
   }

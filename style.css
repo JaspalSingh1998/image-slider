@@ -137,4 +137,51 @@ body {
   bottom: 6rem;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
+  display: flex;
+}
+.pagination label {
+  height: 24px;
+  width: 24px;
+  padding: 16px;
+  opacity: 0.3;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+}
+.pagination label:hover {
+  opacity: 0.8;
+}
+.pagination label:before,
+.pagination label:after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.pagination label:before {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+}
+
+.pagination label:after {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#slide-radio-1:checked ~ .pagination label:nth-child(1),
+#slide-radio-2:checked ~ .pagination label:nth-child(2),
+#slide-radio-3:checked ~ .pagination label:nth-child(3),
+#slide-radio-4:checked ~ .pagination label:nth-child(4) {
+  opacity: 0.8;
+}
+#slide-radio-1:checked ~ .pagination label:nth-child(1)::after,
+#slide-radio-2:checked ~ .pagination label:nth-child(2)::after,
+#slide-radio-3:checked ~ .pagination label:nth-child(3)::after,
+#slide-radio-4:checked ~ .pagination label:nth-child(4)::after {
+  opacity: 1;
 }
